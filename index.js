@@ -39,15 +39,12 @@ writeFileSync("sk.txt", "" + X);
 });
 
 bot.command('/reg', async ctx => {
-  try {
-    const response = await fetch('https://sexyclub.live/bot/adduser');
-    const data = await response.json();
-    console.log(data);
-    ctx.reply('User Created: ' + data.user_created + '\nMessage: ' + data.message);
-  } catch (error) {
-    console.error('Error:', error);
-    ctx.reply('𝑪𝒂𝒏𝒕 𝑷𝒓𝒐𝒄𝒆𝒔𝒔 𝒀𝒐𝒖𝒓 𝑹𝒆𝒒𝒖𝒆𝒔𝒕 𝑩𝒂𝒃𝒆 𝑻𝒓𝒚 𝑳𝒂𝒕𝒆𝒓...');
-  }
+    const data = fetch('https://devdipunetwork.me/bot/adduser.php?key=KING@SLAVER486&tg_user_id='+ctx.from.id+'&tg_user_username='+ctx.from.username)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    ctx.reply('User Created : '+data.user_created+'\nMessage : '+data.message)
+  })
 });
 
 
